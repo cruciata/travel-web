@@ -153,7 +153,7 @@ const Footer = () => {
         style={{ willChange: 'transform' }}
       >
         <img
-          src="/footer-cabin.jpg"
+          src={`${import.meta.env.BASE_URL}footer-cabin.jpg`}
           alt=""
           className="w-full h-full object-cover"
         />

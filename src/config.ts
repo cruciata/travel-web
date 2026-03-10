@@ -11,6 +11,11 @@ export const siteConfig: SiteConfig = {
   siteDescription: "晶晶旅社 - 专业哈尔滨冰雪旅游服务，提供接送机、冰雪大世界、雪乡等特色旅游体验",
 };
 
+const withBaseUrl = (assetPath: string): string => {
+  const normalized = assetPath.replace(/^\/+/, "");
+  return `${import.meta.env.BASE_URL}${normalized}`;
+};
+
 // Hero Section
 export interface HeroConfig {
   backgroundImage: string;
@@ -20,7 +25,7 @@ export interface HeroConfig {
 }
 
 export const heroConfig: HeroConfig = {
-  backgroundImage: "/hero-bg.jpg",
+  backgroundImage: withBaseUrl("hero-bg.jpg"),
   backgroundAlt: "哈尔滨冰雪大世界夜景",
   title: "晶晶旅社",
   subtitle: "探索冰雪奇缘 · 邂逅北国风光",
@@ -65,7 +70,7 @@ export const zigZagGridConfig: ZigZagGridConfig = {
       title: "冰雪大世界",
       subtitle: "世界级冰雪艺术殿堂",
       description: "全球最大的冰雪主题公园，每年冬季用数万立方米冰雪雕琢出梦幻般的城堡、雕塑和灯光秀。夜幕降临，五彩斑斓的冰灯将整个园区装点得如梦似幻，仿佛置身童话世界。",
-      image: "/grid-ice-world.jpg",
+      image: withBaseUrl("grid-ice-world.jpg"),
       imageAlt: "冰雪大世界冰雕",
       reverse: false,
     },
@@ -74,7 +79,7 @@ export const zigZagGridConfig: ZigZagGridConfig = {
       title: "中国雪乡",
       subtitle: "童话般的雪国仙境",
       description: "被誉为「中国最美雪乡」的双峰林场，积雪期长达七个月。独特的「雪蘑菇」房屋、袅袅炊烟、红灯笼点缀，构成一幅绝美的东北民俗画卷。体验马拉爬犁、雪地摩托，感受原汁原味的东北风情。",
-      image: "/grid-snow-town.jpg",
+      image: withBaseUrl("grid-snow-town.jpg"),
       imageAlt: "雪乡雪景",
       reverse: true,
     },
@@ -83,7 +88,7 @@ export const zigZagGridConfig: ZigZagGridConfig = {
       title: "中央大街",
       subtitle: "东方莫斯科的浪漫",
       description: "亚洲最长的步行街，汇集了文艺复兴、巴洛克、折衷主义等多种欧式建筑。漫步面包石街道，品尝马迭尔冰棍、红肠、格瓦斯，感受百年老街的历史韵味与异域风情。",
-      image: "/grid-central-street.jpg",
+      image: withBaseUrl("grid-central-street.jpg"),
       imageAlt: "中央大街",
       reverse: false,
     },
@@ -92,7 +97,7 @@ export const zigZagGridConfig: ZigZagGridConfig = {
       title: "专业接送机",
       subtitle: "贴心服务全程无忧",
       description: "提供24小时机场接送服务，专业司机团队熟悉哈尔滨各条道路。无论航班早晚，我们都会在机场等候。舒适的商务车辆，让您的旅途从一开始就安心舒心。",
-      image: "/grid-transfer.jpg",
+      image: withBaseUrl("grid-transfer.jpg"),
       imageAlt: "接送机服务",
       reverse: true,
     },
@@ -109,7 +114,7 @@ export interface BreathSectionConfig {
 }
 
 export const breathSectionConfig: BreathSectionConfig = {
-  backgroundImage: "/breath-bg.jpg",
+  backgroundImage: withBaseUrl("breath-bg.jpg"),
   backgroundAlt: "松花江冰雪风光",
   title: "冰雪奇缘",
   subtitle: "北国风光 · 千里冰封",
@@ -137,21 +142,21 @@ export const cardStackConfig: CardStackConfig = {
   cards: [
     {
       id: 1,
-      image: "/card-skiing.jpg",
+      image: withBaseUrl("card-skiing.jpg"),
       title: "滑雪体验",
       description: "亚布力滑雪场，亚洲最大的滑雪场之一，适合各级滑雪爱好者",
       rotation: -2,
     },
     {
       id: 2,
-      image: "/card-hot-spring.jpg",
+      image: withBaseUrl("card-hot-spring.jpg"),
       title: "雪地温泉",
       description: "在零下二十度的雪地里泡温泉，冰火两重天的极致体验",
       rotation: 1,
     },
     {
       id: 3,
-      image: "/card-lantern.jpg",
+      image: withBaseUrl("card-lantern.jpg"),
       title: "冰灯游园",
       description: "兆麟公园冰灯艺术游园会，欣赏传统与现代结合的冰雕艺术",
       rotation: -1,
