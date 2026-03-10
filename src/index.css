@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ICE & SNOW Color Palette - 冰雪主题 */
+    --background: 210 50% 98%; /* #F8FBFF - 雪白 */
+    --foreground: 210 60% 15%; /* #0A2540 - 冰川深蓝 */
+    --card: 210 50% 98%;
+    --card-foreground: 210 60% 15%;
+    --popover: 210 50% 98%;
+    --popover-foreground: 210 60% 15%;
+    --primary: 210 80% 42%; /* #1565C0 - 冰川蓝 */
+    --primary-foreground: 0 0% 100%; /* 纯白 */
+    --secondary: 200 60% 55%; /* #42A5F5 - 天空蓝 */
+    --secondary-foreground: 210 60% 15%;
+    --muted: 200 40% 92%;
+    --muted-foreground: 210 30% 40%;
+    --accent: 200 60% 55%;
+    --accent-foreground: 210 60% 15%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 200 30% 85%;
+    --input: 200 30% 85%;
+    --ring: 210 80% 42%;
+    --radius: 0.625rem;
+    
+    /* Custom ICE & SNOW Colors */
+    --ice-white: #FFFFFF;
+    --ice-snow: #F8FBFF;
+    --ice-frost: #E8F4FC;
+    --ice-mist: #D6EBF8;
+    --ice-crystal: #C5E0F5;
+    --glacier-deep: #0A2540;
+    --glacier-dark: #0D3B66;
+    --glacier-primary: #1565C0;
+    --glacier-light: #42A5F5;
+    --glacier-sky: #90CAF9;
+  }
+
+  .dark {
+    --background: 210 60% 10%; /* 深蓝黑 */
+    --foreground: 200 40% 95%;
+    --card: 210 60% 10%;
+    --card-foreground: 200 40% 95%;
+    --popover: 210 60% 10%;
+    --popover-foreground: 200 40% 95%;
+    --primary: 200 60% 65%;
+    --primary-foreground: 210 60% 10%;
+    --secondary: 200 40% 35%;
+    --secondary-foreground: 200 40% 95%;
+    --muted: 210 40% 18%;
+    --muted-foreground: 200 20% 60%;
+    --accent: 200 40% 35%;
+    --accent-foreground: 200 40% 95%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 200 40% 95%;
+    --border: 210 30% 20%;
+    --input: 210 30% 20%;
+    --ring: 200 60% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+  }
+  
+  ::selection {
+    background-color: rgba(21, 101, 192, 0.25);
+    color: #0A2540;
+  }
+}
+
+@layer utilities {
+  /* Typography Utilities */
+  .font-display {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Text sizes for editorial feel */
+  .text-display {
+    font-size: clamp(4rem, 15vw, 12rem);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-headline {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  
+  .text-subheadline {
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    line-height: 1.3;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Ken Burns effect for images */
+  .ken-burns {
+    animation: kenBurns 20s ease-in-out infinite alternate;
+  }
+  
+  @keyframes kenBurns {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    100% {
+      transform: scale(1.1) translate(-2%, -1%);
+    }
+  }
+  
+  /* Fade in up animation */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Spinning star animation */
+  .spin-slow {
+    animation: spinSlow 20s linear infinite;
+  }
+  
+  @keyframes spinSlow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Parallax layer styling */
+  .parallax-layer {
+    will-change: transform;
+  }
+  
+  /* Card hover effect */
+  .card-hover {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(10, 37, 64, 0.15);
+  }
+  
+  /* Magnetic button effect placeholder */
+  .magnetic-btn {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Image reveal mask */
+  .image-reveal {
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .image-reveal.revealed {
+    clip-path: inset(0 0 0 0);
+  }
+  
+  /* Gradient mask for text over images */
+  .gradient-mask-bottom {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+  
+  /* Ice gradient backgrounds */
+  .bg-ice-gradient {
+    background: linear-gradient(135deg, #F8FBFF 0%, #E8F4FC 50%, #D6EBF8 100%);
+  }
+  
+  .bg-glacier-gradient {
+    background: linear-gradient(180deg, #0A2540 0%, #0D3B66 100%);
+  }
+}
+
+/* Lenis smooth scroll styles */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
